@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+{% block title %}Código Fuente{% endblock %}
+{% block content %}
+    <h2>Código Fuente de las Funciones de Cifrado y Descifrado</h2>
+    <h3>Función generar_sustitucion()</h3>
+    <pre>
+def generar_sustitucion(clave: str):
+    """
+    Cifra un texto utilizando el algoritmo MHA
+    La clave debe ser una cadena de texto de 26 caracteres (sin contar espacios, signos de puntuación o caracteres especiales).
+    """
+    if len(clave) < 30:
+        while len(clave) < 30:
+            clave *= 2
+        
+    clave = clave[:26]
+    deltas = [ord(letra) - ord('A') + 1 for letra in clave]
+    alfabeto = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    sustitucion = alfabeto
+        
+    for i in range(len(clave)):
+        letra = alfabeto[i]
+        posicion = (deltas[i] + i)%26
+        sustitucion = sustitucion[:sustitucion.find(letra)] + sustitucion[sustitucion.find(letra)+1:] # quitamos la letra
+        sustitucion = sustitucion[:posicion] + letra + sustitucion[posicion:] # la añadimos en la posicion que corresponde
+    return sustitucion
+    </pre>
+
+    <h3>Función cifrar()</h3>
+    <pre>
+def cifrar(texto: str, clave: str):
+    alfabeto = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    sustitucion = generar_sustitucion(clave)
+    return texto.translate(str.maketrans(alfabeto, sustitucion))
+    </pre>
+    
+    <h3>Función descifrar()</h3>
+    <pre>
+def descifrar(texto_cifrado: str, clave: str):
+    """
+    Descifra un texto usando MHA
+    """
+    alfabeto = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    sustitucion = generar_sustitucion(clave)
+    return texto_cifrado.translate(str.maketrans(sustitucion, alfabeto))
+    </pre>
+{% endblock %}

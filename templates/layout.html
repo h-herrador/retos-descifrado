@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Cifrado y Descifrado{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <h1>Sistema de Cifrado</h1>
+    <nav>
+        <a href="{{ url_for('index') }}">Inicio</a>
+        <a href="{{ url_for('cifrar_texto') }}">Cifrar</a>
+        <a href="{{ url_for('descifrar_texto') }}">Descifrar</a>
+        <a href="{{ url_for('reto') }}">Reto</a>
+        <a href="{{ url_for('codigo_fuente') }}">Código Fuente</a>
+    </nav>
+    
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

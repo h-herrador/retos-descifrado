@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block title %}Descifrar con MHA{% endblock %}
+{% block content %}
+    <h2>Descifrar Texto</h2>
+    <form method="post">
+        <div>
+            <label for="texto_cifrado">Texto cifrado:</label>
+            <textarea id="texto_cifrado" name="texto_cifrado" rows="5" required></textarea>
+        </div>
+        <div>
+            <label for="clave">Clave (entre 10 y 500 caracteres):</label>
+            <input type="text" id="clave" name="clave" minlength="10" maxlength="500" required>
+        </div>
+        <button type="submit">Descifrar</button>
+    </form>
+    
+    {% if error %}
+        <div class="error">
+            {{ error }}
+        </div>
+    {% endif %}
+    
+    {% if resultado %}
+        <div class="resultado">
+            <h3>Texto Descifrado:</h3>
+            <textarea rows="5" readonly>{{ resultado }}</textarea>
+        </div>
+    {% endif %}
+{% endblock %}

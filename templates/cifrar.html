@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block title %}Cifrar con MHA{% endblock %}
+{% block content %}
+    <h2>Cifrar Texto</h2>
+    <form method="post">
+        <div>
+            <label for="texto">Texto a cifrar:</label>
+            <textarea id="texto" name="texto" rows="5" required></textarea>
+        </div>
+        <div>
+            <label for="clave">Clave (entre 10 y 500 caracteres):</label>
+            <input type="text" id="clave" name="clave" minlength="10" maxlength="500" required>
+        </div>
+        <button type="submit">Cifrar</button>
+    </form>
+    
+    {% if error %}
+        <div class="error">
+            {{ error }}
+        </div>
+    {% endif %}
+    
+    {% if resultado %}
+        <div class="resultado">
+            <h3>Texto Cifrado:</h3>
+            <textarea rows="5" readonly>{{ resultado }}</textarea>
+        </div>
+    {% endif %}
+{% endblock %}

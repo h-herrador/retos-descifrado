@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+{% block title %}Inicio{% endblock %}
+{% block content %}
+    <p>Este es el algoritmo de cifrado MHA. Puedes encontrar el código en GitHub, así como en esta página web. Te animamos a explorar las opciones que ofrecemos, así como intentar resolver los retos propuestos</p>
+    <ul>
+        <li><a href="{{ url_for('cifrar_texto') }}">Cifrar textos</a> usando una clave</li>
+        <li><a href="{{ url_for('descifrar_texto') }}">Descifrar textos</a> con clave conocida</li>
+        <li><a href="{{ url_for('reto') }}">Participar en un reto</a> de descifrado de textos con este algoritmo</li>
+        <li><a href="{{ url_for('codigo_fuente') }}">Ver el código fuente</a> de las funciones de cifrado y descifrado</li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block title %}Reto de Descifrado{% endblock %}
+{% block content %}
+    <h2>Reto de Descifrado</h2>
+    <p>Dispones de 3 niveles de dificultad: difícil, experto y semidios.</p>
+    <p>Descarga el texto y descífralo (o inténtalo). Luego, introduce el texto descifrado a continuación:</p>
+    
+    <a href="{{ url_for('descargar_reto') }}" class="button">Descargar Texto Cifrado</a>
+    
+    <form method="post">
+        <select name="select"> Elige la dificultad
+            <option value="value1">Difícil</option>
+            <option value="value2">Imposible</option>
+            <option value="value3">Semidios</option>
+        </select>
+        <div>
+            <label for="respuesta">Texto descifrado:</label>
+            <textarea id="respuesta" name="respuesta" rows="5" required></textarea>
+        </div>
+        <button type="submit">Verificar</button>
+    </form>
+    
+    {% if mensaje %}
+        <div class="resultado {% if exito %}success{% else %}error{% endif %}">
+            {{ mensaje }}
+        </div>
+    {% endif %}
+{% endblock %}
