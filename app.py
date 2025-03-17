@@ -87,7 +87,9 @@ def reto():
     if request.method == 'POST':
         respuesta = request.form.get('respuesta', '')
         respuesta = procesar(respuesta)
-        with open('hash_texto.txt', 'r') as txt:
+        dificultad = request.form.get('dificultad')
+        print(dificultad)
+        with open(f'hash_{dificultad}.txt', 'r') as txt:
             hash_texto = txt.read()
 
         if sha256(respuesta.encode('utf8')).hexdigest() == hash_texto:
@@ -100,9 +102,9 @@ def reto():
         
     return render_template('reto.html', mensaje=mensaje, exito=exito)
 
-@app.route('/descargar_reto')
+@app.route('/descargar_retos')
 def descargar_reto():
-    return send_file('reto_cifrado.txt', as_attachment=True)
+    return send_file('retos.zip', as_attachment=True)
 
 @app.route('/codigo_fuente')
 def codigo_fuente():

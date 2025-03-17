@@ -8,11 +8,14 @@
     <a href="{{ url_for('descargar_reto') }}" class="button">Descargar Texto Cifrado</a>
     
     <form method="post">
-        <select name="select"> Elige la dificultad
-            <option value="value1">Difícil</option>
-            <option value="value2">Imposible</option>
-            <option value="value3">Semidios</option>
+        <div>
+        <label for="dificultad">Elige la dificultad:</label>
+        <select name="dificultad" id = "dificultad" required>
+            <option value="dificil">Difícil</option>
+            <option value="imposible">Imposible</option>
+            <option value="semidios">Semidios</option>
         </select>
+        </div>
         <div>
             <label for="respuesta">Texto descifrado:</label>
             <textarea id="respuesta" name="respuesta" rows="5" required></textarea>
