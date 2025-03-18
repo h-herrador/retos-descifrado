@@ -16,6 +16,6 @@ Es muy fácil, solo tienes que seguir estos pasos:
 - Clonar el repositorio en tu ordenador. Para eso, abre un terminal y escribe ```git clone https://github.com/h-herrador/retos-descifrado```
 - Instalar las dependencias. Te lo ponemos fácil, ya tienes un archivo de requirements. Sólo escribe: ```pip install -r requirements.txt```
 - Ejecuta la aplicación. Para eso tienes que escribir ```flask run```
-- Ahora accede desde tu navegador al puerto que Flask ha abierto (por defecto es el 5000, pero revísalo por si es otro). Escribe **en tu navegador** ```localhost:5000```
+- Ahora accede desde tu navegador al puerto que Flask ha abierto (por defecto es el 5000, pero puedes cambiarlo). Escribe **en tu navegador** ```localhost:5000```
 - ¡Y listo!
 
