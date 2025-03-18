@@ -97,7 +97,7 @@ def reto():
             exito = True
 
         else:
-            mensaje = f"El texto descifrado no es correcto. Sigue intentándolo.{(hash_texto, sha256(respuesta.encode('utf8')).hexdigest())}"
+            mensaje = "El texto descifrado no es correcto. Sigue intentándolo."
             exito = False
         
     return render_template('reto.html', mensaje=mensaje, exito=exito)
