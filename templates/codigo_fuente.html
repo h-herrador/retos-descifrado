@@ -9,8 +9,8 @@ def generar_sustitucion(clave: str):
     Cifra un texto utilizando el algoritmo MHA
     La clave debe ser una cadena de texto de 26 caracteres (sin contar espacios, signos de puntuación o caracteres especiales).
     """
-    if len(clave) < 30:
-        while len(clave) < 30:
+    if len(clave) < 26:
+        while len(clave) < 26:
             clave *= 2
         
     clave = clave[:26]
